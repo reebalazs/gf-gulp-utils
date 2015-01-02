@@ -1,0 +1,57 @@
+{
+  "name": "gf-gulp-utils",
+  "version": "0.0.0",
+  "description": "Greenfinity gulp utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reebalazs/gf-gulp-utils.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "lodash": "*",
+    "bower": "*",
+    "browserify": "*",
+    "browserify-shim": "*",
+    "debowerify": "*",
+    "watchify": "*",
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-header": "*",
+    "gulp-load-plugins": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "gulp-connect": "*",
+    "gulp-angular-templatecache": "*",
+    "gulp-remove-use-strict": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-watch": "*",
+    "gulp-bower": "*",
+    "gulp-less": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-jshint": "*",
+    "gulp-template": "*",
+    "gulp-inject": "*",
+    "jshint-stylish": "*",
+    "del": "*",
+    "browser-sync": "*",
+    "merge-stream": "*",
+    "readable-stream": "*",
+    "vinyl-transform": "*",
+    "vinyl-source-stream": "*",
+    "vinyl-buffer": "*",
+    "run-sequence": "*",
+    "connect-history-api-fallback": "*",
+    "critical": "*"
+  },
+  "browserify": {
+    "transform": [
+      "debowerify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+  }
+}
