@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/reebalazs/gf-gulp-utils.git"
   },
+  "main": "src/index.js",
   "dependencies": {
   },
   "devDependencies": {
