@@ -67,24 +67,24 @@ module.exports = function dev() {
   watch([
     'src/*/**/*.html',
   ], function (files) {
-    return runSequence('build-html-partials');
+    return runSequence.use(global.gulp)('build-html-partials');
   });
   watch([
     'src/*.html', 
     'src/inline/*.js', 
   ], function (files) {
     // ... manual reload, because we changed the same file
-    return runSequence('build-html-pages', 'reload');
+    return runSequence.use(global.gulp)('build-html-pages', 'reload');
   });
   watch([
     'src/*.less',
   ], function (files, cb) {
-    return runSequence('build-css');
+    return runSequence.use(global.gulp)('build-css');
   });
   watch([
     'dist/static/index.css',
   ], function (files, cb) {
-    return runSequence('build-css-critical', 'build-html-pages');
+    return runSequence.use(global.gulp)('build-css-critical', 'build-html-pages');
   });
   // reinstalls
   watch('bower.json', function (files) {
