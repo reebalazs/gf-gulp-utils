@@ -3,11 +3,10 @@
 /* jshint node: true */
 'use strict';
 
-var gulp = require('gulp'),
-    plugin = require('gulp-load-plugins')();
+var plugin = require('gulp-load-plugins')();
 
 module.exports = function lint() {
-  return gulp.src('src/**/*.js')
+  return global.gulp.src('src/**/*.js')
     .pipe(plugin.jshint())
     .pipe(plugin.jshint.reporter(require('jshint-stylish')));
 };

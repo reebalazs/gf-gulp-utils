@@ -3,8 +3,7 @@
 /* jshint node: true */
 'use strict';
 
-var gulp = require('gulp'),
-    $ = require('gulp-load-plugins')(),
+var $ = require('gulp-load-plugins')(),
     watch = require('gulp-watch'),
     gutil = require('gulp-util'),
     browserify = require('browserify'),
@@ -21,6 +20,7 @@ function browserSyncReload() {
 }
 
 module.exports = function dev() {
+  var gulp = global.gulp;
   // start live reload
   browserSync({
     server: {
@@ -35,7 +35,7 @@ module.exports = function dev() {
       forms: true,
       scroll: true,
     },
-    xip: true,
+    xip: false,
     minify: false,
   });
   // switch hook to start using it from all tasks
@@ -43,7 +43,6 @@ module.exports = function dev() {
 
   var args = watchify.args;
   //args.extensions = ['.js']
-  console.log(args);
   var bundler = watchify(browserify('./src/index.js', args));
 
   function rebundle() {

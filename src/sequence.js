@@ -10,6 +10,6 @@ module.exports = function sequence() {
   return function runSequenceTask(cb) {
     var fArgs = Array.prototype.slice.call(args, 0);
     fArgs.push(cb);
-    runSequence.apply(null, fArgs);
+    runSequence.use(global.gulp).apply(null, fArgs);
   };
 };

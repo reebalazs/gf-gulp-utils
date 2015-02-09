@@ -2,14 +2,7 @@
 /* jshint node: true */
 'use strict';
 
-var packageInfo = require('../../package.json'),
-    sequence = require('./sequence.js'),
-    util = require('gulp-util');
-
-// to be used from streams, only does reload when we are in watch
-global.reload = util.noop;
-
-global.banner =  '/*\n * ' + packageInfo.name + ' generated resources \n*/\n';
+var sequence = require('./sequence.js');
 
 module.exports = {
   tasks: {

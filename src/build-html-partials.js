@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     templatecache = require('gulp-angular-templatecache');
 
 module.exports = function buildHtmlPartials() {
+  var gulp = global.gulp;
   // build the partials
   return gulp.src('./src/*/**/*.html')
     .pipe(templatecache({

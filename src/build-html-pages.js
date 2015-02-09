@@ -3,10 +3,10 @@
 /* jshint node: true */
 'use strict';
 
-var gulp = require('gulp'),
-    plugin = require('gulp-load-plugins')();
+var plugin = require('gulp-load-plugins')();
 
 module.exports = function buildHtmlPages() {
+  var gulp = global.gulp;
   // copy the main htmls, resolving templates
   var inlineJs = gulp.src(['./src/inline/*.js'])
     .pipe(plugin.concat('inline.js'))

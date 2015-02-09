@@ -2,10 +2,9 @@
 /* jshint node: true */
 'use strict';
 
-var gulp = require('gulp'),
-    plugin = require('gulp-load-plugins')();
+var plugin = require('gulp-load-plugins')();
 
 module.exports = function bower() {
   return plugin.bower()
-    .pipe(gulp.dest('dist/static/'));
+    .pipe(global.gulp.dest('dist/static/'));
 };
