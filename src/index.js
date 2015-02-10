@@ -10,7 +10,7 @@ module.exports = {
     'clean': require('./clean.js'),
     'lint': require('./lint.js'),
     'reload': require('./reload.js'),
-    'build':  sequence(['build-js', 'build-html']),
+    'build':  sequence(['build-js', 'build-html', 'build-fonts']),
     'bower': require('./bower.js'),
     'install': sequence('bower', 'build'),
     'dev': require('./dev.js'),
@@ -21,6 +21,7 @@ module.exports = {
     'build-html-partials': require('./build-html-partials.js'),
     'build-js-app': require('./build-js-app.js'),
     'build-css': require('./build-css.js'),
+    'build-fonts': require('./build-fonts.js'),
   },
   setup: require('./setup.js')
 };
