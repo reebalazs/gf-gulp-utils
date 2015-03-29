@@ -5,7 +5,8 @@
 
 var packageInfo = require('../package.json'),
     _ = require('lodash'),
-    util = require('gulp-util');
+    util = require('gulp-util'),
+    sequence = require('./sequence');
 
 module.exports = function setup(options) {
   if (options.gulp === undefined) {
@@ -21,7 +22,23 @@ module.exports = function setup(options) {
   // Use packageName if defined, in the banner.
   global.banner =  '/*\n * ' + options.packageName + ' generated resources \n*/\n';
   // set up gulp tasks
-  _.each(this.tasks, function(value, name) {
-    options.gulp.task(name, value);
+  _.each(this.tasks, function(values, name) {
+    // Make a single value into an array
+    if (typeof values !== 'object') {
+      values = [values];
+    }
+    // Register each handler as an inside task.
+    values = _.map(values, function(value, index) {
+      if (typeof value !== 'function') {
+        return value;
+      } else {
+        // register the value under an implicit task
+        var implicitTaskName = '_' + name + '_' + index;
+        options.gulp.task(implicitTaskName, value);
+        return implicitTaskName;
+      }
+    });
+    // register the values as a sequence
+    options.gulp.task(name, sequence(values));
   });
 };
